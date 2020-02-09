@@ -11,17 +11,21 @@
 		DF73E25223EF26EE00E24124 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25123EF26EE00E24124 /* OpenGL.framework */; };
 		DF73E25423EF276000E24124 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */; };
 		DF73E25623EF277600E24124 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25523EF277600E24124 /* libglfw.3.3.dylib */; };
+		DF73E29D23F08BCF00E24124 /* shader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E26323F078E400E24124 /* shader.vs */; };
+		DF73E29E23F08BCF00E24124 /* shader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E26423F0791900E24124 /* shader.fs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DF73E24423EF24C000E24124 /* CopyFiles */ = {
+		DF73E29C23F08BC600E24124 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				DF73E29D23F08BCF00E24124 /* shader.vs in CopyFiles */,
+				DF73E29E23F08BCF00E24124 /* shader.fs in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -32,6 +36,9 @@
 		DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../../usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		DF73E25523EF277600E24124 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "hello-triangle.entitlements"; sourceTree = "<group>"; };
+		DF73E25C23F0699B00E24124 /* shader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = shader.h; sourceTree = "<group>"; };
+		DF73E26323F078E400E24124 /* shader.vs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
+		DF73E26423F0791900E24124 /* shader.fs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +77,9 @@
 			children = (
 				DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */,
 				DF73E24923EF24C000E24124 /* main.cpp */,
+				DF73E26323F078E400E24124 /* shader.vs */,
+				DF73E26423F0791900E24124 /* shader.fs */,
+				DF73E25C23F0699B00E24124 /* shader.h */,
 			);
 			path = "hello-triangle";
 			sourceTree = "<group>";
@@ -93,7 +103,7 @@
 			buildPhases = (
 				DF73E24223EF24C000E24124 /* Sources */,
 				DF73E24323EF24C000E24124 /* Frameworks */,
-				DF73E24423EF24C000E24124 /* CopyFiles */,
+				DF73E29C23F08BC600E24124 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -260,6 +270,7 @@
 		DF73E24E23EF24C000E24124 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = "hello-triangle/hello-triangle.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
@@ -277,6 +288,7 @@
 		DF73E24F23EF24C000E24124 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = "hello-triangle/hello-triangle.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
