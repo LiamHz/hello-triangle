@@ -13,6 +13,8 @@
 		DF73E25623EF277600E24124 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25523EF277600E24124 /* libglfw.3.3.dylib */; };
 		DF73E29D23F08BCF00E24124 /* shader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E26323F078E400E24124 /* shader.vs */; };
 		DF73E29E23F08BCF00E24124 /* shader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E26423F0791900E24124 /* shader.fs */; };
+		DF73E2A123F0B0A100E24124 /* container.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E2A023F0B0A100E24124 /* container.jpg */; };
+		DF73E2A323F0BFDC00E24124 /* awesomeface.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E2A223F0BFDC00E24124 /* awesomeface.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,6 +24,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				DF73E2A323F0BFDC00E24124 /* awesomeface.png in CopyFiles */,
+				DF73E2A123F0B0A100E24124 /* container.jpg in CopyFiles */,
 				DF73E29D23F08BCF00E24124 /* shader.vs in CopyFiles */,
 				DF73E29E23F08BCF00E24124 /* shader.fs in CopyFiles */,
 			);
@@ -39,6 +43,9 @@
 		DF73E25C23F0699B00E24124 /* shader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = shader.h; sourceTree = "<group>"; };
 		DF73E26323F078E400E24124 /* shader.vs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
 		DF73E26423F0791900E24124 /* shader.fs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
+		DF73E29F23F0AFB500E24124 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		DF73E2A023F0B0A100E24124 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = container.jpg; path = "hello-triangle/container.jpg"; sourceTree = "<group>"; };
+		DF73E2A223F0BFDC00E24124 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = awesomeface.png; path = "hello-triangle/awesomeface.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,8 @@
 		DF73E23D23EF24C000E24124 = {
 			isa = PBXGroup;
 			children = (
+				DF73E2A223F0BFDC00E24124 /* awesomeface.png */,
+				DF73E2A023F0B0A100E24124 /* container.jpg */,
 				DF73E24823EF24C000E24124 /* hello-triangle */,
 				DF73E24723EF24C000E24124 /* Products */,
 				DF73E25023EF26EE00E24124 /* Frameworks */,
@@ -77,6 +86,7 @@
 			children = (
 				DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */,
 				DF73E24923EF24C000E24124 /* main.cpp */,
+				DF73E29F23F0AFB500E24124 /* stb_image.h */,
 				DF73E26323F078E400E24124 /* shader.vs */,
 				DF73E26423F0791900E24124 /* shader.fs */,
 				DF73E25C23F0699B00E24124 /* shader.h */,
