@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 // GLEW and GLFW
 #define GLEW_STATIC
@@ -7,22 +8,20 @@
 
 const GLint WIDTH = 800, HEIGHT = 600;
 
-const char *vertexShaderSource = "#version 330\n"
+const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
+    "layout (location = 1) in vec3 aColor;\n"
+    "out vec3 vertexColor;\n"
     "void main() {\n"
-    "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+    "   gl_Position = vec4(aPos, 1.0);\n"
+    "   vertexColor = aColor;\n"
     "}\0";
 
-const char *fragmentShaderOrangeSource = "#version 330\n"
+const char *fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
+    "in vec3 vertexColor;\n"
     "void main() {\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-    "}\0";
-
-const char *fragmentShaderBlueSource = "#version 330\n"
-    "out vec4 FragColor;\n"
-    "void main() {\n"
-    "   FragColor = vec4(0.1f, 0.2f, 1.0f, 1.0f);\n"
+    "   FragColor = vec4(vertexColor, 1.0f);"
     "}\0";
 
 // Check for compile and linking errors
@@ -69,48 +68,39 @@ int main() {
     // Build and compile shaders
     // Vertex shader
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    unsigned int fragmentShaderOrange = glCreateShader(GL_FRAGMENT_SHADER);
-    unsigned int fragmentShaderBlue = glCreateShader(GL_FRAGMENT_SHADER);
-    unsigned int shaderProgramOrange = glCreateProgram();
-    unsigned int shaderProgramBlue = glCreateProgram();
+    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    unsigned int shaderProgram = glCreateProgram();
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
-    glShaderSource(fragmentShaderOrange, 1, &fragmentShaderOrangeSource, NULL);
-    glCompileShader(fragmentShaderOrange);
-    glShaderSource(fragmentShaderBlue, 1, &fragmentShaderBlueSource, NULL);
-    glCompileShader(fragmentShaderBlue);
+    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+    glCompileShader(fragmentShader);
     
     // Check for shader compile errors
     checkVertexShaderCompileError(vertexShader, infoLog, success);
-    checkFragmentShaderCompileError(fragmentShaderOrange, infoLog, success);
-    checkFragmentShaderCompileError(fragmentShaderBlue, infoLog, success);
+    checkFragmentShaderCompileError(fragmentShader, infoLog, success);
     
     // Link shaders
-    glAttachShader(shaderProgramOrange, vertexShader);
-    glAttachShader(shaderProgramOrange, fragmentShaderOrange);
-    glLinkProgram(shaderProgramOrange);
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    glLinkProgram(shaderProgram);
     
-    glAttachShader(shaderProgramBlue, vertexShader);
-    glAttachShader(shaderProgramBlue, fragmentShaderBlue);
-    glLinkProgram(shaderProgramBlue);
-    
-    checkLinkingError(shaderProgramOrange, infoLog, success);
-    checkLinkingError(shaderProgramBlue, infoLog, success);
+    checkLinkingError(shaderProgram, infoLog, success);
     
     glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShaderOrange);
-    glDeleteShader(fragmentShaderBlue);
+    glDeleteShader(fragmentShader);
     
     //  Set up vertex and buffer data, and configure vertex attributes
     float triangle1[] = {
-        -0.9f, -0.5f, 0.0f,  // left
-        -0.0f, -0.5f, 0.0f,  // right
-        -0.45f, 0.5f, 0.0f,  // top
+        // Positions        // Colors
+        0.5f,  -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top
     };
     float triangle2[] = {
-        0.0f, -0.5f, 0.0f,  // left
-        0.9f, -0.5f, 0.0f,  // right
-        0.45f, 0.5f, 0.0f   // top
+        // Positions        // Colors
+        0.0f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+        0.9f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+        0.45f, 0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top
     };
     
     unsigned int VBOs[2], VAOs[2];
@@ -123,10 +113,13 @@ int main() {
     glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(triangle1), triangle1, GL_STATIC_DRAW);
     
-    // Configure vertex attributes
+    // Configure vertex position attributes
     glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+    // Configure vertex color attributes
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
     
     // Second triangle
     // Bind Vertex Array Object, then bind and set vertex buffer(s)
@@ -134,10 +127,13 @@ int main() {
     glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(triangle2), triangle2, GL_STATIC_DRAW);
     
-    // Configure vertex attributes
+    // Configure vertex position attributes
     glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+    // Configure vertex color attributes
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
@@ -148,12 +144,11 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
         
         // Draw triangles
-        glUseProgram(shaderProgramOrange);
+        glUseProgram(shaderProgram);
         glBindVertexArray(VAOs[0]);
         glDrawArrays(GL_TRIANGLES, 0, 3);
-        glUseProgram(shaderProgramBlue);
-        glBindVertexArray(VAOs[1]);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+//        glBindVertexArray(VAOs[1]);
+//        glDrawArrays(GL_TRIANGLES, 0, 3);
         
         // Use double buffer
         // Only swap old frame with new when it is completed
