@@ -31,7 +31,7 @@
 		DF73E25123EF26EE00E24124 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../../usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		DF73E25523EF277600E24124 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
-		DF73E25723EF2D7000E24124 /* OpenGL Template.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OpenGL Template.entitlements"; sourceTree = "<group>"; };
+		DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "hello-triangle.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 		DF73E24823EF24C000E24124 /* hello-triangle */ = {
 			isa = PBXGroup;
 			children = (
-				DF73E25723EF2D7000E24124 /* OpenGL Template.entitlements */,
+				DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */,
 				DF73E24923EF24C000E24124 /* main.cpp */,
 			);
 			path = "hello-triangle";
@@ -260,7 +260,7 @@
 		DF73E24E23EF24C000E24124 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "GLFW OpenGL/GLFW OpenGL.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "hello-triangle/hello-triangle.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -277,7 +277,7 @@
 		DF73E24F23EF24C000E24124 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "GLFW OpenGL/GLFW OpenGL.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "hello-triangle/hello-triangle.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
 				ENABLE_HARDENED_RUNTIME = NO;
