@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DF73E24A23EF24C000E24124 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF73E24923EF24C000E24124 /* main.cpp */; };
+		DF73E25223EF26EE00E24124 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25123EF26EE00E24124 /* OpenGL.framework */; };
+		DF73E25423EF276000E24124 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */; };
+		DF73E25623EF277600E24124 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25523EF277600E24124 /* libglfw.3.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DF73E24623EF24C000E24124 /* GLFW OpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "GLFW OpenGL"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF73E24623EF24C000E24124 /* hello-triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "hello-triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF73E24923EF24C000E24124 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DF73E25123EF26EE00E24124 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../../usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		DF73E25523EF277600E24124 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		DF73E25723EF2D7000E24124 /* OpenGL Template.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OpenGL Template.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF73E25623EF277600E24124 /* libglfw.3.3.dylib in Frameworks */,
+				DF73E25423EF276000E24124 /* libGLEW.2.1.0.dylib in Frameworks */,
+				DF73E25223EF26EE00E24124 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,33 +51,45 @@
 		DF73E23D23EF24C000E24124 = {
 			isa = PBXGroup;
 			children = (
-				DF73E24823EF24C000E24124 /* GLFW OpenGL */,
+				DF73E24823EF24C000E24124 /* hello-triangle */,
 				DF73E24723EF24C000E24124 /* Products */,
+				DF73E25023EF26EE00E24124 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		DF73E24723EF24C000E24124 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DF73E24623EF24C000E24124 /* GLFW OpenGL */,
+				DF73E24623EF24C000E24124 /* hello-triangle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF73E24823EF24C000E24124 /* GLFW OpenGL */ = {
+		DF73E24823EF24C000E24124 /* hello-triangle */ = {
 			isa = PBXGroup;
 			children = (
+				DF73E25723EF2D7000E24124 /* OpenGL Template.entitlements */,
 				DF73E24923EF24C000E24124 /* main.cpp */,
 			);
-			path = "GLFW OpenGL";
+			path = "hello-triangle";
+			sourceTree = "<group>";
+		};
+		DF73E25023EF26EE00E24124 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF73E25523EF277600E24124 /* libglfw.3.3.dylib */,
+				DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */,
+				DF73E25123EF26EE00E24124 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DF73E24523EF24C000E24124 /* GLFW OpenGL */ = {
+		DF73E24523EF24C000E24124 /* hello-triangle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF73E24D23EF24C000E24124 /* Build configuration list for PBXNativeTarget "GLFW OpenGL" */;
+			buildConfigurationList = DF73E24D23EF24C000E24124 /* Build configuration list for PBXNativeTarget "hello-triangle" */;
 			buildPhases = (
 				DF73E24223EF24C000E24124 /* Sources */,
 				DF73E24323EF24C000E24124 /* Frameworks */,
@@ -77,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = "GLFW OpenGL";
+			name = "hello-triangle";
 			productName = "GLFW OpenGL";
-			productReference = DF73E24623EF24C000E24124 /* GLFW OpenGL */;
+			productReference = DF73E24623EF24C000E24124 /* hello-triangle */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +118,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DF73E24123EF24C000E24124 /* Build configuration list for PBXProject "GLFW OpenGL" */;
+			buildConfigurationList = DF73E24123EF24C000E24124 /* Build configuration list for PBXProject "hello-triangle" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,7 +131,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF73E24523EF24C000E24124 /* GLFW OpenGL */,
+				DF73E24523EF24C000E24124 /* hello-triangle */,
 			);
 		};
 /* End PBXProject section */
@@ -238,9 +260,16 @@
 		DF73E24E23EF24C000E24124 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GLFW OpenGL/GLFW OpenGL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0_1/lib,
+					/usr/local/Cellar/glfw/3.3.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,9 +277,16 @@
 		DF73E24F23EF24C000E24124 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GLFW OpenGL/GLFW OpenGL.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0_1/lib,
+					/usr/local/Cellar/glfw/3.3.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -258,7 +294,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DF73E24123EF24C000E24124 /* Build configuration list for PBXProject "GLFW OpenGL" */ = {
+		DF73E24123EF24C000E24124 /* Build configuration list for PBXProject "hello-triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF73E24B23EF24C000E24124 /* Debug */,
@@ -267,7 +303,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF73E24D23EF24C000E24124 /* Build configuration list for PBXNativeTarget "GLFW OpenGL" */ = {
+		DF73E24D23EF24C000E24124 /* Build configuration list for PBXNativeTarget "hello-triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF73E24E23EF24C000E24124 /* Debug */,
