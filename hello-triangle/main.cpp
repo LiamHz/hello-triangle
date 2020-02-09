@@ -26,9 +26,9 @@ const char *fragmentShaderBlueSource = "#version 330\n"
     "}\0";
 
 // Check for compile and linking errors
-void checkVertexShaderCompileError(int &vertexShader, char infoLog[], int &success);
-void checkFragmentShaderCompileError(int &fragmentShader, char infoLog[], int &success);
-void checkLinkingError(int &shaderProgram, char infoLog[], int &success);
+void checkVertexShaderCompileError(unsigned int &vertexShader, char infoLog[], int &success);
+void checkFragmentShaderCompileError(unsigned int &fragmentShader, char infoLog[], int &success);
+void checkLinkingError(unsigned int &shaderProgram, char infoLog[], int &success);
 
 int main() {
     glfwInit();
@@ -81,9 +81,9 @@ int main() {
     glCompileShader(fragmentShaderBlue);
     
     // Check for shader compile errors
-//    checkVertexShaderCompileError(vertexShader, infoLog, success);
-//    checkFragmentShaderCompileError(fragmentShaderOrange, infoLog, success);
-//    checkFragmentShaderCompileError(fragmentShaderBlue, infoLog, success);
+    checkVertexShaderCompileError(vertexShader, infoLog, success);
+    checkFragmentShaderCompileError(fragmentShaderOrange, infoLog, success);
+    checkFragmentShaderCompileError(fragmentShaderBlue, infoLog, success);
     
     // Link shaders
     glAttachShader(shaderProgramOrange, vertexShader);
@@ -94,8 +94,8 @@ int main() {
     glAttachShader(shaderProgramBlue, fragmentShaderBlue);
     glLinkProgram(shaderProgramBlue);
     
-//    checkLinkingError(shaderProgramOrange, infoLog, success);
-//    checkLinkingError(shaderProgramBlue, infoLog, success);
+    checkLinkingError(shaderProgramOrange, infoLog, success);
+    checkLinkingError(shaderProgramBlue, infoLog, success);
     
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShaderOrange);
@@ -142,10 +142,7 @@ int main() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
     
-//    Try to draw 2 triangles next to each other using glDrawArrays by adding more vertices to your data: solution.
-//    Now create the same 2 triangles using two different VAOs and VBOs for their data: solution.
-//    Create two shader programs where the second program uses a different fragment shader that outputs the color yellow; draw both triangles again where one outputs the color yellow: solution.
-    
+    // Render loop
     while (!glfwWindowShouldClose(window)) {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -170,7 +167,7 @@ int main() {
     return 0;
 }
 
-void checkLinkingError(int &shaderProgram, char infoLog[], int &success) {
+void checkLinkingError(unsigned int &shaderProgram, char infoLog[], int &success) {
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if (!success) {
           glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
@@ -178,7 +175,7 @@ void checkLinkingError(int &shaderProgram, char infoLog[], int &success) {
     }
 }
 
-void checkVertexShaderCompileError(int &vertexShader, char infoLog[], int &success) {
+void checkVertexShaderCompileError(unsigned int &vertexShader, char infoLog[], int &success) {
     glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
     if (!success) {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
@@ -186,7 +183,7 @@ void checkVertexShaderCompileError(int &vertexShader, char infoLog[], int &succe
     }
 }
 
-void checkFragmentShaderCompileError(int &fragmentShader, char infoLog[], int &success) {
+void checkFragmentShaderCompileError(unsigned int &fragmentShader, char infoLog[], int &success) {
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
     if (!success) {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
