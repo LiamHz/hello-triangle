@@ -6,6 +6,9 @@
 #include <GLFW/glfw3.h>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "shader.h"
 
@@ -93,13 +96,7 @@ int main() {
 //    glBindBuffer(GL_ARRAY_BUFFER, 0);
 //    glBindVertexArray(0);
     
-    // Load and create texture
-    float texCoords[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.5f, 1.0f
-    };
-
+    // Load and create textures
     unsigned int texture1, texture2;
     
     // Texture 1
@@ -144,9 +141,7 @@ int main() {
 
     stbi_image_free(data);
     
-    
     shader.use();
-//    glUniformli(glGetUniformLocation(shader.ID, "texture1"), 0);
     shader.setInt("texture1", 0);
     shader.setInt("texture2", 1);
     
@@ -164,7 +159,16 @@ int main() {
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
         
-        // Draw triangles
+        // Create transformations
+        glm::mat4 transform = glm::mat4(1.0f);
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0, 0.0, 1.0));
+        
+        shader.use();
+        unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+        
+        // Render container
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
