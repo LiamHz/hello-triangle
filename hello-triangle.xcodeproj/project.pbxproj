@@ -49,6 +49,7 @@
 		DF73E2A023F0B0A100E24124 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = container.jpg; path = "hello-triangle/container.jpg"; sourceTree = "<group>"; };
 		DF73E2A223F0BFDC00E24124 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = awesomeface.png; path = "hello-triangle/awesomeface.png"; sourceTree = "<group>"; };
 		DF73E2AB23F2209300E24124 /* navid.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navid.jpeg; path = "hello-triangle/navid.jpeg"; sourceTree = "<group>"; };
+		DF73E2AD23F24A6000E24124 /* camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +91,7 @@
 			children = (
 				DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */,
 				DF73E24923EF24C000E24124 /* main.cpp */,
+				DF73E2AD23F24A6000E24124 /* camera.h */,
 				DF73E29F23F0AFB500E24124 /* stb_image.h */,
 				DF73E26323F078E400E24124 /* shader.vs */,
 				DF73E26423F0791900E24124 /* shader.fs */,
