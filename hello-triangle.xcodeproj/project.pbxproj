@@ -16,6 +16,8 @@
 		DF73E2A323F0BFDC00E24124 /* awesomeface.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E2A223F0BFDC00E24124 /* awesomeface.png */; };
 		DF73E2A623F217EE00E24124 /* container.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E2A023F0B0A100E24124 /* container.jpg */; };
 		DF73E2AC23F2209300E24124 /* navid.jpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E2AB23F2209300E24124 /* navid.jpeg */; };
+		DF73E2AF23F24F7A00E24124 /* glad.c in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF73E2AE23F24F7A00E24124 /* glad.c */; };
+		DF73E2B023F251D300E24124 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = DF73E2AE23F24F7A00E24124 /* glad.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				DF73E2AF23F24F7A00E24124 /* glad.c in CopyFiles */,
 				DF73E2AC23F2209300E24124 /* navid.jpeg in CopyFiles */,
 				DF73E2A623F217EE00E24124 /* container.jpg in CopyFiles */,
 				DF73E2A323F0BFDC00E24124 /* awesomeface.png in CopyFiles */,
@@ -50,6 +53,7 @@
 		DF73E2A223F0BFDC00E24124 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = awesomeface.png; path = "hello-triangle/awesomeface.png"; sourceTree = "<group>"; };
 		DF73E2AB23F2209300E24124 /* navid.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navid.jpeg; path = "hello-triangle/navid.jpeg"; sourceTree = "<group>"; };
 		DF73E2AD23F24A6000E24124 /* camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
+		DF73E2AE23F24F7A00E24124 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = "hello-triangle/glad.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		DF73E23D23EF24C000E24124 = {
 			isa = PBXGroup;
 			children = (
+				DF73E2AE23F24F7A00E24124 /* glad.c */,
 				DF73E2AB23F2209300E24124 /* navid.jpeg */,
 				DF73E2A223F0BFDC00E24124 /* awesomeface.png */,
 				DF73E2A023F0B0A100E24124 /* container.jpg */,
@@ -167,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF73E2B023F251D300E24124 /* glad.c in Sources */,
 				DF73E24A23EF24C000E24124 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

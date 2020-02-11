@@ -1,8 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-#define GLEW_STATIC
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -56,10 +55,8 @@ int main() {
     glfwMakeContextCurrent(window);
     glfwSetCursorPosCallback(window, mouse_callback);
     
-    glewExperimental = GL_TRUE;
-
-    if(GLEW_OK != glewInit()) {
-        std::cout << "Failed to initialize GLEW" << std::endl;
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
 
