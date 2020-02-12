@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1ED99B23F4A38300CF963E /* lamp.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF1ED99823F49D7E00CF963E /* lamp.fs */; };
 		DF73E24A23EF24C000E24124 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF73E24923EF24C000E24124 /* main.cpp */; };
 		DF73E25223EF26EE00E24124 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25123EF26EE00E24124 /* OpenGL.framework */; };
 		DF73E25423EF276000E24124 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */; };
@@ -27,6 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				DF1ED99B23F4A38300CF963E /* lamp.fs in CopyFiles */,
 				DF73E2AF23F24F7A00E24124 /* glad.c in CopyFiles */,
 				DF73E2AC23F2209300E24124 /* navid.jpeg in CopyFiles */,
 				DF73E2A623F217EE00E24124 /* container.jpg in CopyFiles */,
@@ -39,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DF1ED99823F49D7E00CF963E /* lamp.fs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = lamp.fs; sourceTree = "<group>"; };
 		DF73E24623EF24C000E24124 /* hello-triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "hello-triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF73E24923EF24C000E24124 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DF73E25123EF26EE00E24124 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -96,6 +99,7 @@
 			children = (
 				DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */,
 				DF73E24923EF24C000E24124 /* main.cpp */,
+				DF1ED99823F49D7E00CF963E /* lamp.fs */,
 				DF73E2AD23F24A6000E24124 /* camera.h */,
 				DF73E29F23F0AFB500E24124 /* stb_image.h */,
 				DF73E26323F078E400E24124 /* shader.vs */,
