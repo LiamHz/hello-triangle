@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DF1ED99B23F4A38300CF963E /* lamp.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF1ED99823F49D7E00CF963E /* lamp.fs */; };
-		DF73E24A23EF24C000E24124 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF73E24923EF24C000E24124 /* main.cpp */; };
+		DF32D2CF23FD9DC2000C0059 /* crate.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF32D2CD23FD9D54000C0059 /* crate.png */; };
+		DF32D2D123FD9F34000C0059 /* crate_specular.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF32D2D023FD9F2C000C0059 /* crate_specular.png */; };
+		DF32D2D223FDA44E000C0059 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF73E24923EF24C000E24124 /* main.cpp */; };
 		DF73E25223EF26EE00E24124 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25123EF26EE00E24124 /* OpenGL.framework */; };
 		DF73E25423EF276000E24124 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */; };
 		DF73E25623EF277600E24124 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73E25523EF277600E24124 /* libglfw.3.3.dylib */; };
@@ -28,6 +30,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				DF32D2D123FD9F34000C0059 /* crate_specular.png in CopyFiles */,
+				DF32D2CF23FD9DC2000C0059 /* crate.png in CopyFiles */,
 				DF1ED99B23F4A38300CF963E /* lamp.fs in CopyFiles */,
 				DF73E2AF23F24F7A00E24124 /* glad.c in CopyFiles */,
 				DF73E2AC23F2209300E24124 /* navid.jpeg in CopyFiles */,
@@ -42,19 +46,20 @@
 
 /* Begin PBXFileReference section */
 		DF1ED99823F49D7E00CF963E /* lamp.fs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = lamp.fs; sourceTree = "<group>"; };
+		DF32D2CD23FD9D54000C0059 /* crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate.png; sourceTree = "<group>"; };
+		DF32D2D023FD9F2C000C0059 /* crate_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crate_specular.png; sourceTree = "<group>"; };
 		DF73E24623EF24C000E24124 /* hello-triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "hello-triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF73E24923EF24C000E24124 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DF73E25123EF26EE00E24124 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		DF73E25323EF276000E24124 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../../usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		DF73E25523EF277600E24124 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
-		DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "hello-triangle.entitlements"; sourceTree = "<group>"; };
 		DF73E25C23F0699B00E24124 /* shader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = shader.h; sourceTree = "<group>"; };
 		DF73E26323F078E400E24124 /* shader.vs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
 		DF73E26423F0791900E24124 /* shader.fs */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
 		DF73E29F23F0AFB500E24124 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
-		DF73E2A023F0B0A100E24124 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = container.jpg; path = "hello-triangle/container.jpg"; sourceTree = "<group>"; };
-		DF73E2A223F0BFDC00E24124 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = awesomeface.png; path = "hello-triangle/awesomeface.png"; sourceTree = "<group>"; };
-		DF73E2AB23F2209300E24124 /* navid.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navid.jpeg; path = "hello-triangle/navid.jpeg"; sourceTree = "<group>"; };
+		DF73E2A023F0B0A100E24124 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		DF73E2A223F0BFDC00E24124 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		DF73E2AB23F2209300E24124 /* navid.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = navid.jpeg; sourceTree = "<group>"; };
 		DF73E2AD23F24A6000E24124 /* camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
 		DF73E2AE23F24F7A00E24124 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = "hello-triangle/glad.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,14 +78,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF32D2CE23FD9D60000C0059 /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				DF73E2AB23F2209300E24124 /* navid.jpeg */,
+				DF73E2A223F0BFDC00E24124 /* awesomeface.png */,
+				DF73E2A023F0B0A100E24124 /* container.jpg */,
+				DF32D2CD23FD9D54000C0059 /* crate.png */,
+				DF32D2D023FD9F2C000C0059 /* crate_specular.png */,
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
 		DF73E23D23EF24C000E24124 = {
 			isa = PBXGroup;
 			children = (
 				DF73E2AE23F24F7A00E24124 /* glad.c */,
-				DF73E2AB23F2209300E24124 /* navid.jpeg */,
-				DF73E2A223F0BFDC00E24124 /* awesomeface.png */,
-				DF73E2A023F0B0A100E24124 /* container.jpg */,
-				DF73E24823EF24C000E24124 /* hello-triangle */,
+				DF73E24923EF24C000E24124 /* main.cpp */,
+				DF1ED99823F49D7E00CF963E /* lamp.fs */,
+				DF73E2AD23F24A6000E24124 /* camera.h */,
+				DF73E29F23F0AFB500E24124 /* stb_image.h */,
+				DF73E26323F078E400E24124 /* shader.vs */,
+				DF73E26423F0791900E24124 /* shader.fs */,
+				DF73E25C23F0699B00E24124 /* shader.h */,
+				DF32D2CE23FD9D60000C0059 /* textures */,
 				DF73E24723EF24C000E24124 /* Products */,
 				DF73E25023EF26EE00E24124 /* Frameworks */,
 			);
@@ -92,21 +113,6 @@
 				DF73E24623EF24C000E24124 /* hello-triangle */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DF73E24823EF24C000E24124 /* hello-triangle */ = {
-			isa = PBXGroup;
-			children = (
-				DF73E25723EF2D7000E24124 /* hello-triangle.entitlements */,
-				DF73E24923EF24C000E24124 /* main.cpp */,
-				DF1ED99823F49D7E00CF963E /* lamp.fs */,
-				DF73E2AD23F24A6000E24124 /* camera.h */,
-				DF73E29F23F0AFB500E24124 /* stb_image.h */,
-				DF73E26323F078E400E24124 /* shader.vs */,
-				DF73E26423F0791900E24124 /* shader.fs */,
-				DF73E25C23F0699B00E24124 /* shader.h */,
-			);
-			path = "hello-triangle";
 			sourceTree = "<group>";
 		};
 		DF73E25023EF26EE00E24124 /* Frameworks */ = {
@@ -176,8 +182,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF32D2D223FDA44E000C0059 /* main.cpp in Sources */,
 				DF73E2B023F251D300E24124 /* glad.c in Sources */,
-				DF73E24A23EF24C000E24124 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = "hello-triangle/hello-triangle.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -315,7 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = "hello-triangle/hello-triangle.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8P6FU425R;
 				ENABLE_HARDENED_RUNTIME = NO;
