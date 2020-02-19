@@ -66,7 +66,6 @@ int main() {
     Shader shader("shader.vs", "shader.fs");
     Shader lampShader("shader.vs", "lamp.fs");
     
-    
 
     float vertices[] = {
         // Postion            // Surface normals
@@ -114,16 +113,18 @@ int main() {
     };
     
     glm::vec3 cubePositions[] = {
-        glm::vec3( 0.0f,  0.0f,  0.0f),
-        glm::vec3( 2.0f,  5.0f, -15.0f),
+        glm::vec3( 0.0f,  0.0f,  -2.0f),
+        glm::vec3( 2.0f,  5.0f, -5.0f),
         glm::vec3(-1.5f, -2.2f, -2.5f),
-        glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3(-3.8f, -2.0f, -6.3f),
         glm::vec3( 2.4f, -0.4f, -3.5f),
         glm::vec3(-1.7f,  3.0f, -7.5f),
         glm::vec3( 1.3f, -2.0f, -2.5f),
         glm::vec3( 1.5f,  2.0f, -2.5f),
         glm::vec3( 1.5f,  0.2f, -1.5f),
-        glm::vec3(-1.3f,  1.0f, -1.5f)
+        glm::vec3(-2.3f,  0.0f, -2.5f),
+        glm::vec3(-0.3f,  2.0f, -3.5f),
+        glm::vec3(3.3f,  1.0f, -1.5f)
     };
 
     unsigned int VBO, VAO, lightCubeVAO;
@@ -153,15 +154,13 @@ int main() {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+    glm::vec3 lightPos(1.2f, 4.0f, 4.0f);
     
+    // Set light intensities
     shader.use();
-    shader.setVec3("objectColor", 1.0f, 0.5f, 0.3f);
-    shader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-    shader.setVec3("lightPos", lightPos);
-    
-//    lampShader.use();
-    
+    shader.setVec3("light.ambient",  0.5f, 0.5f, 0.5f);
+    shader.setVec3("light.diffuse",  0.5f, 0.5f, 0.5f);
+    shader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
 
     // Set projection matrix
     glm::mat4 projection = glm::mat4(1.0f);
@@ -176,6 +175,84 @@ int main() {
     
     // Enable mouse input
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    
+    std::vector<glm::vec3> ambient;
+    std::vector<glm::vec3> diffuse;
+    std::vector<glm::vec3> specular;
+    std::vector<float> shininess;
+    
+    // Emerald
+    ambient.push_back(glm::vec3{0.0215, 0.1745, 0.0215});
+    diffuse.push_back(glm::vec3{0.07568, 0.61424, 0.07568});
+    specular.push_back(glm::vec3{0.633, 0.727811, 0.633});
+    shininess.push_back(0.6);
+    
+    // Jade
+    ambient.push_back(glm::vec3{0.135, 0.2225, 0.1575});
+    diffuse.push_back(glm::vec3{0.54, 0.89, 0.63});
+    specular.push_back(glm::vec3{0.316228, 0.316228, 0.316228});
+    shininess.push_back(0.1);
+    
+    // Obsidian
+    ambient.push_back(glm::vec3{0.05375, 0.05, 0.06625});
+    diffuse.push_back(glm::vec3{0.18275, 0.17, 0.22525});
+    specular.push_back(glm::vec3{0.332741, 0.328634, 0.346435});
+    shininess.push_back(0.3);
+    
+    // Pearl
+    ambient.push_back(glm::vec3{0.25, 0.20725, 0.20725});
+    diffuse.push_back(glm::vec3{1, 0.829, 0.829});
+    specular.push_back(glm::vec3{0.296648, 0.296648, 0.296648});
+    shininess.push_back(0.088);
+    
+    // Ruby
+    ambient.push_back(glm::vec3{0.1745, 0.01175, 0.01175});
+    diffuse.push_back(glm::vec3{0.61424, 0.04136, 0.04136});
+    specular.push_back(glm::vec3{0.727811, 0.626959, 0.626959});
+    shininess.push_back(0.6);
+    
+    // Turqouise
+    ambient.push_back(glm::vec3{0.1, 0.18725, 0.1745});
+    diffuse.push_back(glm::vec3{0.396, 0.74151, 0.69102});
+    specular.push_back(glm::vec3{0.297254, 0.30829, 0.306678});
+    shininess.push_back(0.1);
+    
+    // Brass
+    ambient.push_back(glm::vec3{0.329412, 0.223529, 0.027451});
+    diffuse.push_back(glm::vec3{0.780392, 0.568627, 0.113725});
+    specular.push_back(glm::vec3{0.992157, 0.941176, 0.807843});
+    shininess.push_back(0.21794872);
+    
+    // Bronze
+    ambient.push_back(glm::vec3{0.2125, 0.1275, 0.054});
+    diffuse.push_back(glm::vec3{0.714, 0.4284, 0.18144});
+    specular.push_back(glm::vec3{0.393548, 0.271906, 0.166721});
+    shininess.push_back(0.2);
+    
+    // Chrome
+    ambient.push_back(glm::vec3{0.25, 0.25, 0.25});
+    diffuse.push_back(glm::vec3{0.4, 0.4, 0.4});
+    specular.push_back(glm::vec3{0.774597, 0.774597, 0.774597});
+    shininess.push_back(0.6);
+    
+    // Copper
+    ambient.push_back(glm::vec3{0.19125, 0.0735, 0.0225});
+    diffuse.push_back(glm::vec3{0.7038, 0.27048, 0.0828});
+    specular.push_back(glm::vec3{0.256777, 0.137622, 0.086014});
+    shininess.push_back(0.1);
+    
+    // Gold
+    ambient.push_back(glm::vec3{0.24725, 0.1995, 0.0745});
+    diffuse.push_back(glm::vec3{0.75164, 0.60648, 0.22648});
+    specular.push_back(glm::vec3{0.628281, 0.555802, 0.366065});
+    shininess.push_back(0.4);
+    
+    // Silver
+    ambient.push_back(glm::vec3{0.19225, 0.19225, 0.19225});
+    diffuse.push_back(glm::vec3{0.50754, 0.50754, 0.50754});
+    specular.push_back(glm::vec3{0.508273, 0.508273, 0.508273});
+    shininess.push_back(0.4);
+    
     
     // Render loop
     while (!glfwWindowShouldClose(window)) {
@@ -199,23 +276,25 @@ int main() {
         // Camera/view transformation
         glm::mat4 view = camera.GetViewMatrix();
         shader.setMat4("view", view);
+        shader.setVec3("viewPos", camera.Position);
         
         // Render boxes
         glBindVertexArray(VAO);
-        for (unsigned int i = 0; i < 10; i++) {
+        for (unsigned int i = 0; i < ambient.size(); i++) {
             // Set world coordinates of object
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, cubePositions[i]);
             float angle = 15.0f * (i+1);
             if (i == 0) { angle = 40.0f; }
-//            model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+                model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
             shader.setMat4("model", model);
+            shader.setVec3("material.ambient", ambient[i]);
+            shader.setVec3("material.diffuse", diffuse[i]);
+            shader.setVec3("material.specular", specular[i]);
+            shader.setFloat("material.shininess", shininess[i]);
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
-//        glm::mat4 model = glm::mat4(1.0f);
-//        shader.setMat4("model", model);
-//        glDrawArrays(GL_TRIANGLES, 0, 36);
         
         lampShader.use();
         
